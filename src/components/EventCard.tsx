@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 interface EventCardProps {
+  id?: string;
   title: string;
   description: string;
   date: string;
@@ -15,6 +17,7 @@ interface EventCardProps {
 }
 
 const EventCard = ({
+  id,
   title,
   description,
   date,
@@ -90,10 +93,19 @@ const EventCard = ({
         </div>
 
         {/* Action */}
-        <Button variant="ghost" className="group/btn p-0 h-auto text-primary hover:text-primary">
-          View Details
-          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </Button>
+        {id ? (
+          <Link to={`/events/${id}`}>
+            <Button variant="ghost" className="group/btn p-0 h-auto text-primary hover:text-primary">
+              View Details
+              <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+            </Button>
+          </Link>
+        ) : (
+          <Button variant="ghost" className="group/btn p-0 h-auto text-primary hover:text-primary">
+            View Details
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </Button>
+        )}
       </div>
     </div>
   );

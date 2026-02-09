@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Users, Award } from "lucide-react";
 
@@ -33,14 +34,18 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <Button variant="hero" size="xl">
-              Explore Events
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="xl">
-              <Calendar className="w-5 h-5" />
-              Host Your Event
-            </Button>
+            <Link to="/events">
+              <Button variant="hero" size="xl">
+                Explore Events
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/auth">
+              <Button variant="outline" size="xl">
+                <Calendar className="w-5 h-5" />
+                Host Your Event
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
